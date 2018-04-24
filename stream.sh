@@ -25,6 +25,6 @@ echo "Concatenating files..."
 ffmpeg -f concat -i playlist.txt -c copy stream.mp4
 
 echo "Going online..."
-ffmpeg -stream_loop -1 -i stream.mp4 -vcodec libx264 -crf 30 -preset medium -r 30 -f flv rtmp://live.twitch.tv/app/<<streamkey>>
+ffmpeg -stream_loop -1 -i stream.mp4 -vcodec libx264 -crf 30 -preset medium -tune film  -tune fastdecode -r 30 -f flv rtmp://live.twitch.tv/app/<<streamkey>>
 
 # Replace <<streamkey>> with your stream key for twitch
