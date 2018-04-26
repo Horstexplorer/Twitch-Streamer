@@ -26,7 +26,7 @@ ffmpeg -err_detect ignore_err -loglevel panic -f concat -i playlist.txt -c copy 
 
 echo -e "[\033[1;32mInfo\033[0m] Going online..."
 sleep 5
-ffmpeg -err_detect ignore_err -stream_loop -1 -re -i stream.mp4 -vcodec libx264 -crf 30 -preset medium -tune film  -tune fastdecode -b:v 3M -maxrate 8M -minrate 2M -bufsize 2M -ar 44100 -f flv rtmp://live.twitch.tv/app/<<streamkey>>
+ffmpeg -err_detect ignore_err -stream_loop -1 -re -i stream.mp4 -vcodec libx264 -preset medium -tune film  -tune fastdecode -b:v 3M -maxrate 8M -minrate 2M -bufsize 2M -c:a aac -ar 44100 -f flv rtmp://live.twitch.tv/app/<<streamkey>>
 #Things like "Non-monotonous DTS in output stream" or "Past duration x.xxxxxx too large" occure sometimes. Not sure why but I try to fix it soon.
 
 # Replace <<streamkey>> with your stream key for twitch
